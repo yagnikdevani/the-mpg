@@ -20,6 +20,7 @@ class WarrantyRegistrationController extends Controller
 
     public function registrationSubmit(Request $request){
         $request->validate([
+            'select_product' => 'required',
             'product_serial' => 'required',
             'machine_serial' => 'required',
             'customer_name'  => 'required',

@@ -26,8 +26,8 @@
             <!-- alertifyjs default themes  Css -->
             <link href="{{env_asset('assets/libs/alertifyjs/build/css/themes/default.min.css')}}" rel="stylesheet" type="text/css" />
     
-        <link rel="stylesheet" href="assets/css/icons.css" />
-        <link rel="stylesheet" href="assets/css/tailwind.css" />
+        <link rel="stylesheet" href="{{env_asset('assets/css/icons.css')}}" />
+        <link rel="stylesheet" href="{{env_asset('assets/css/tailwind.css')}}" />
     
     </head>
 
