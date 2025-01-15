@@ -116,7 +116,7 @@
 @push('script')
 
 <!-- init js -->
-<script src="assets/js/pages/form-advanced.init.js"></script>
+<script src="{{env_asset('assets/js/pages/form-advanced.init.js')}}"></script>
 
 <script>
     $(document).ready(function () {

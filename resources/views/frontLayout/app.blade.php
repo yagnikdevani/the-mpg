@@ -16,15 +16,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico" />
+        <link rel="shortcut icon" href="{{env_asset('assets/images/favicon.ico')}}" />
     
             <!-- choices css -->
-            <link href="assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
+            <link href="{{env_asset('assets/libs/choices.js/public/assets/styles/choices.min.css')}}" rel="stylesheet" type="text/css" />
             <!-- alertifyjs Css -->
-            <link href="assets/libs/alertifyjs/build/css/alertify.min.css" rel="stylesheet" type="text/css" />
+            <link href="{{env_asset('assets/libs/alertifyjs/build/css/alertify.min.css')}}" rel="stylesheet" type="text/css" />
     
             <!-- alertifyjs default themes  Css -->
-            <link href="assets/libs/alertifyjs/build/css/themes/default.min.css" rel="stylesheet" type="text/css" />
+            <link href="{{env_asset('assets/libs/alertifyjs/build/css/themes/default.min.css')}}" rel="stylesheet" type="text/css" />
     
         <link rel="stylesheet" href="assets/css/icons.css" />
         <link rel="stylesheet" href="assets/css/tailwind.css" />
@@ -41,20 +41,20 @@
             
         </div>
 
-        <script src="assets/libs/@popperjs/core/umd/popper.min.js"></script>
-        <script src="assets/libs/feather-icons/feather.min.js"></script>
-        <script src="assets/libs/metismenujs/metismenujs.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/feather-icons/feather.min.js"></script>
+        <script src="{{env_asset('assets/libs/@popperjs/core/umd/popper.min.js')}}"></script>
+        <script src="{{env_asset('assets/libs/feather-icons/feather.min.js')}}"></script>
+        <script src="{{env_asset('assets/libs/metismenujs/metismenujs.min.js')}}"></script>
+        <script src="{{env_asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
+        <script src="{{env_asset('assets/libs/feather-icons/feather.min.js')}}"></script>
          <!-- choices js -->
-        <script src="assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+        <script src="{{env_asset('assets/libs/choices.js/public/assets/scripts/choices.min.js')}}"></script>
         <!-- alertifyjs js -->
-        <script src="assets/libs/alertifyjs/build/alertify.min.js"></script>
+        <script src="{{env_asset('assets/libs/alertifyjs/build/alertify.min.js')}}"></script>
 
         <!-- notification init -->
         <!-- <script src="assets/js/pages/notification.init.js"></script> -->
         
-        <script src="assets/js/app.js"></script>
+        <script src="{{env_asset('assets/js/app.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 
