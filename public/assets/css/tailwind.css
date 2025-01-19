@@ -5376,9 +5376,9 @@ body{
       margin-left: 0px !important;
   }
 @media (min-width: 1140px) {
-body[data-sidebar-size=sm] {
+/* body[data-sidebar-size=sm] {
     min-height: 1000px;
-  }
+  } */
 
   [dir="rtl"] [data-sidebar-size=sm] .main-content{
     margin-left: 0px;

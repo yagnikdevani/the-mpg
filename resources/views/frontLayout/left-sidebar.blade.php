@@ -129,13 +129,13 @@
                 <li class="menu-heading px-4 py-3.5 text-xs font-medium text-gray-500 cursor-default" data-key="t-menu">Menu</li>
 
                 <li>
-                    <a href="{{route('front.home')}}" class="pl-6 pr-4 py-3 block text-sm font-medium text-gray-700 transition-all duration-150 ease-linear hover:text-violet-500 dark:text-gray-300 dark:active:text-white dark:hover:text-white">
+                    <a href="{{route('front.registration-and-request')}}" class="pl-6 pr-4 py-3 block text-sm font-medium text-gray-700 transition-all duration-150 ease-linear hover:text-violet-500 dark:text-gray-300 dark:active:text-white dark:hover:text-white">
                         <i data-feather="home"></i>
                         <span data-key="t-dashboard"> Home</span>
                     </a>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" aria-expanded="false" class="pl-6 pr-4 py-3 block text-sm font-medium text-gray-700 transition-all duration-150 ease-linear hover:text-violet-500 dark:text-gray-300 dark:active:text-white dark:hover:text-white">
                         <i data-feather="grid"></i>
                         <span data-key="t-apps"> Apps</span>
@@ -148,7 +148,7 @@
                         <i data-feather="users"></i>
                         <span data-key="t-auth">Authentication</span>
                     </a>
-                </li>
+                </li> --}}
 
                  
 

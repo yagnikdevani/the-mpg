@@ -64,10 +64,10 @@
 
                                 <!-- Country -->
                                 
-                                <div class="col-span-12 lg:col-span-6">
+                                <div class="col-span-12 lg:col-span-4">
                                     <div class="mb-3">
                                         <label class="block font-medium text-gray-700 dark:text-zinc-100 mb-2">Country</label>
-                                        <select class="dark:bg-zinc-800 dark:border-zinc-700 w-full rounded border-gray-100 py-2.5 text-sm text-gray-500 focus:border focus:border-violet-500 focus:ring-0 dark:bg-zinc-700/50 dark:text-zinc-100" name="country" id="choices-single-default" data-trigger>
+                                        <select class="dark:bg-zinc-800 dark:border-zinc-700 w-full rounded border-gray-100 py-2.5 text-sm text-gray-500 focus:border focus:border-violet-500 focus:ring-0 dark:bg-zinc-700/50 dark:text-zinc-100" name="country" id="country" data-trigger>
                                             <option value="">Select Country</option>
                                             
                                             @foreach ($countries as $key => $country)
@@ -78,9 +78,19 @@
                                         @error('country') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                                     </div>
                                 </div>
+
+                                <div class="col-span-12 lg:col-span-4">
+                                    <div class="mb-3">
+                                        <label class="block font-medium text-gray-700 dark:text-zinc-100 mb-2">State</label>
+                                        <select class="dark:bg-zinc-800 dark:border-zinc-700 w-full rounded border-gray-100 py-2.5 text-sm text-gray-500 focus:border focus:border-violet-500 focus:ring-0 dark:bg-zinc-700/50 dark:text-zinc-100" name="state" id="state" data-trigger>
+                                            <option value="">Select State</option>
+                                        </select>
+                                        @error('state') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
+                                    </div>
+                                </div>
                         
                                 <!-- City -->
-                                <div class="col-span-12 lg:col-span-6">
+                                <div class="col-span-12 lg:col-span-4">
                                     <div class="mb-4">
                                         <label for="example-text-input" class="block font-medium text-gray-700 dark:text-gray-100 mb-2">City</label>
                                         <input class="w-full rounded border-gray-100 placeholder:text-sm focus:border focus:border-violet-500 focus:ring-0 dark:bg-zinc-700/50 dark:border-zinc-600 dark:placeholder:text-zinc-100 dark:text-zinc-100" name="city" type="text" placeholder="City" id="city">
@@ -120,6 +130,36 @@
 
 <script>
     $(document).ready(function () {
+
+        const countryChoice = new Choices('#country', { removeItemButton: true });
+        const stateChoice = new Choices('#state', { removeItemButton: true });
+
+        $('#country').on('change', function () {
+            const countryId = $(this).val();
+
+            // Clear existing state options
+            stateChoice.clearStore();
+            stateChoice.setChoices([{ value: '', label: 'Select State', selected: true }], 'value', 'label');
+
+            if (countryId) {
+                // Fetch states using AJAX
+                $.ajax({
+                    url: `get-states?country_id=${countryId}`,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        const stateOptions = data.map(state => ({
+                            value: state.id,
+                            label: state.name
+                        }));
+                        stateChoice.setChoices(stateOptions, 'value', 'label');
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error fetching states:', error);
+                    }
+                });
+            }
+        });
        
         $('#warranty-registration-form').on('submit', function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -141,7 +181,7 @@
                     }).then(() => {
                         // Reset the form after the success alert
                         $('#warranty-registration-form')[0].reset();
-                        window.location.href = '/';
+                        window.location.href = "{{route('front.registration-and-request')}}";
                     });
                 },
                 error: function (xhr) {

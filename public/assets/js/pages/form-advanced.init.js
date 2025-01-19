@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // singleNoSearch
-    var singleNoSearch = new Choices('#choices-single-no-search', {
+    /* var singleNoSearch = new Choices('#choices-single-no-search', {
         searchEnabled: false,
         removeItemButton: true,
         choices: [
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'value',
         'label',
         false
-    );
+    ); */
 
     // singleNoSorting
     var singleNoSorting = new Choices('#choices-single-no-sorting', {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // colorpicker
 
 // classic color picker
-var classicPickr = Pickr.create({
+/* var classicPickr = Pickr.create({
     el: '.classic-colorpicker',
     theme: 'classic', // or 'monolith', or 'nano'
     default: '#4a4fea',
@@ -124,11 +124,11 @@ var classicPickr = Pickr.create({
             save: true
         }
     }
-});
+}); */
 
 
 // monolith color picker
-var monolithPickr = Pickr.create({
+/* var monolithPickr = Pickr.create({
     el: '.monolith-colorpicker',
     theme: 'monolith',
     default: '#27bbe8',
@@ -159,10 +159,10 @@ var monolithPickr = Pickr.create({
             save: true
         }
     }
-});
+}); */
 
 // nano color picker
-var nanoPickr = Pickr.create({
+/* var nanoPickr = Pickr.create({
     el: '.nano-colorpicker',
     theme: 'nano',
     default: '#f7cc53',
@@ -193,21 +193,21 @@ var nanoPickr = Pickr.create({
             save: true
         }
     }
-});
+}); */
 
 // flatpickr
 
-flatpickr('#datepicker-basic', {
+/* flatpickr('#datepicker-basic', {
     defaultDate: new Date()
-});
+}); */
 
-flatpickr('#datepicker-datetime', {
+/* flatpickr('#datepicker-datetime', {
     enableTime: true,
     dateFormat: "m-d-Y H:i",
     defaultDate: new Date()
-});
+}); */
 
-flatpickr('#datepicker-humanfd', {
+/* flatpickr('#datepicker-humanfd', {
     altInput: true,
     altFormat: "F j, Y",
     dateFormat: "Y-m-d",
@@ -250,4 +250,4 @@ flatpickr('#datepicker-timepicker', {
 flatpickr('#datepicker-inline', {
     inline: true,
     defaultDate: new Date()
-});
+}); */
