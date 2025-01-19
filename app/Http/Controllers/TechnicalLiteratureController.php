@@ -78,7 +78,7 @@ class TechnicalLiteratureController extends Controller
             'product_serial' => 'required',
             'select_product'     =>'required',
         ]);
-        $data = WarrantyRegistration::with(['country','state','country.states'])->where(['product_serial'=>$request->product_serial,'product_id'=>$request->select_product])->first();
+        $data = WarrantyRegistration::with(['getCountry','getState','country.states'])->where(['product_serial'=>$request->product_serial,'product_id'=>$request->select_product])->first();
         if ($data) {
             return response()->json($data, 200);
         } else {

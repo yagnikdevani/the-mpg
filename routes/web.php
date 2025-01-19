@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\EmployeeUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WarrantyRegistrationController;
+use App\Http\Controllers\Admin\WarrantyController;
 use App\Http\Controllers\TechnicalLiteratureController;
 use App\Http\Controllers\ServiceRequestController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +27,7 @@ Route::get('/registration-and-request', function () {
     return view('registration-and-request');
 })->name('front.registration-and-request');
 
-Route::get('/warranty-registration', [WarrantyRegistrationController::class, 'registration'])->name('front.warranty-registration');
+Route::get('/product-warranty-registration', [WarrantyRegistrationController::class, 'registration'])->name('front.warranty-registration');
 Route::post('/warranty-registration-submit', [WarrantyRegistrationController::class, 'registrationSubmit'])->name('front.warranty-registration-submit');
 
 Route::get('/technical-literature-request', [TechnicalLiteratureController::class, 'registration'])->name('front.technical-literature-request');
@@ -41,7 +43,7 @@ Route::get('/get-states', [WarrantyRegistrationController::class, 'getStates'])-
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -50,6 +52,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    
+
+    Route::group(['prefix'=>'warranty-registration'], function(){
+        Route::get('/', [WarrantyController::class, 'index'])->name('warranty.index');
+    });
+
+    Route::group(['prefix'=>'manage-employee'], function(){
+        Route::get('/', [EmployeeUserController::class, 'index'])->name('employee.index');
+    });
 });
 
 require __DIR__.'/auth.php';
